@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Blind Walls</string>
+    <string name="item_wall_image_description">Picture of the wall.</string>
 </resources>
