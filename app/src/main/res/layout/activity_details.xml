@@ -26,7 +26,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
-            app:srcCompat="@color/colorAccent" />
+            tools:srcCompat="@color/colorAccent" />
 
         <ImageView
             android:id="@+id/activity_details_iv_wall_blurred"
@@ -78,16 +78,18 @@
 
         <TextView
             android:id="@+id/activity_details_tv_address"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:textAppearance="@style/TextAppearance.AppCompat"
             android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@+id/activity_details_rb_rating"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/activity_details_iv_wall_blurred"
-            tools:text="Stallingstraat"
-            android:layout_marginLeft="8dp" />
+            tools:text="Stallingstraat" />
 
         <RatingBar
             android:id="@+id/activity_details_rb_rating"
@@ -113,12 +115,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
-            android:text="@string/Material"
             android:textAppearance="@style/TextAppearance.AppCompat"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/activity_details_tv_address"
-            tools:text="Material: Latex on plaster"
-            android:layout_marginLeft="8dp" />
+            tools:text="Material: Latex on plaster" />
 
         <TextView
             android:id="@+id/activity_details_tv_categorie"
@@ -126,12 +126,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:text="@string/Categorie"
             android:textAppearance="@style/TextAppearance.AppCompat"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/activity_details_tv_material"
-            tools:text="Categorie: Blind Wall"
-            android:layout_marginLeft="8dp" />
+            tools:text="Categorie: Blind Wall" />
 
         <TextView
             android:id="@+id/activity_details_tv_description"
