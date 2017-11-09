@@ -2,5 +2,5 @@
     <string name="app_name">Blind Walls</string>
     <string name="item_wall_image_description">Picture of the wall: %1$s.</string>
     <string name="Material">Material: %1$s</string>
-    <string name="Categorie">Categorie: %1$s</string>
+    <string name="Category">Category: %1$s</string>
 </resources>
