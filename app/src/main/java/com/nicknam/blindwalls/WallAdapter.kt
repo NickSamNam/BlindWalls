@@ -35,7 +35,7 @@ class WallAdapter(private val context: Context, private val layoutInflator: Layo
         val l = if (context.resources.configuration.locale.language == Locale("nl").language) "nl" else "en"
 
         val w = walls[position]
-        vh.title.text = w.title[l]
+        vh.title.text = w.title[l]?.trim()
         vh.address.text = w.address
         vh.rating.rating = w.rating ?: 0f
         Picasso.with(context).load(w.images.firstOrNull()).into(vh.picture)
