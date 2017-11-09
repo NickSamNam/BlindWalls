@@ -20,7 +20,7 @@ class DetailsActivity : AppCompatActivity() {
         activity_details_tv_address.text = wall.address
         activity_details_rb_rating.rating = wall.rating ?: 0f
         activity_details_tv_material.text = getString(R.string.Material, wall.material[l])
-        activity_details_tv_categorie.text = getString(R.string.Categorie, wall.category[l])
+        activity_details_tv_categorie.text = getString(R.string.Category, wall.category[l])
         activity_details_tv_description.text = wall.description[l]
         Picasso.with(this).load(wall.images.firstOrNull()).into(activity_details_iv_wall)
         Picasso.with(this).load(wall.images.firstOrNull()).transform(BlurTransformation(this)).into(activity_details_iv_wall_blurred)
