@@ -2,6 +2,7 @@ package com.nicknam.blindwalls
 
 import org.json.JSONArray
 import org.json.JSONObject
+import java.io.Serializable
 import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
@@ -18,23 +19,23 @@ data class Wall(val id: Int,
                 val longitude: Float,
                 val address: String,
                 val nrOnMap: Int,
-                val videoURL: String,
+                val videoURL: String?,
                 val year: Int,
                 val photographer: String,
                 val videoAuthor: String,
                 val author: String,
-                val rating: Float,
+                val rating: Float?,
                 val title: Map<String, String>,
                 val url: Map<String, String>,
                 val description: Map<String, String>,
                 val material: Map<String, String>,
                 val category: Map<String, String>,
                 val images: List<String>
-) {
+) : Serializable {
     companion object {
-        fun extractFromJSONArray(jsonArray: JSONArray): List<Wall> {
+        fun extractFromJSONArray(jsonArray: JSONArray): MutableList<Wall> {
             val walls: MutableList<Wall> = ArrayList(jsonArray.length())
-            for (i in 0..jsonArray.length()) {
+            for (i in 0 until jsonArray.length()) {
                 val o = jsonArray[i] as JSONObject
 
                 val title: MutableMap<String, String> = HashMap(2)
@@ -54,22 +55,23 @@ data class Wall(val id: Int,
                 category.put("nl", o.getJSONObject("category")["nl"] as String)
                 val images: MutableList<String> = ArrayList((o.getJSONArray("images")).length())
 
+                val rating = if (o["rating"] is Double) (o["rating"] as Double).toFloat() else (o["rating"] as? Int)?.toFloat()
                 walls.add(Wall(
                         o["id"] as Int,
                         o["published"] as Int,
-                        Date(o["date"] as Long),
-                        Date(o["dateModified"] as Long),
+                        Date((o["date"] as Int).toLong()),
+                        Date((o["dateModified"] as Int).toLong()),
                         o["authorID"] as Int,
-                        o["latitude"] as Float,
-                        o["longitude"] as Float,
+                        (o["latitude"] as Double).toFloat(),
+                        (o["longitude"] as Double).toFloat(),
                         o["address"] as String,
                         o["numberOnMap"] as Int,
-                        o["videoUrl"] as String,
-                        o["year"] as Int,
+                        o["videoUrl"] as? String,
+                        (o["year"] as String).toInt(),
                         o["photographer"] as String,
                         o["videoAuthor"] as String,
                         o["author"] as String,
-                        o["rating"] as Float,
+                        rating,
                         title,
                         url,
                         description,

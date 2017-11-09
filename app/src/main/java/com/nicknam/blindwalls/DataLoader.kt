@@ -9,6 +9,6 @@ import java.io.InputStreamReader
  */
 class DataLoader {
     companion object {
-        fun retreiveWalls(context: Context): JSONArray = JSONArray(InputStreamReader(context.resources.openRawResource(R.raw.walls)).buffered().use { it.readText() })
+        fun retrieveWalls(context: Context): JSONArray = JSONArray(InputStreamReader(context.resources.openRawResource(R.raw.walls)).buffered().use { it.readText() })
     }
 }
