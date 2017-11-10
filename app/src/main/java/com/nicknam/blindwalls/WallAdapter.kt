@@ -38,7 +38,7 @@ class WallAdapter(private val context: Context, private val layoutInflator: Layo
         vh.title.text = w.title[l]?.trim()
         vh.address.text = w.address
         vh.rating.rating = w.rating ?: 0f
-        Picasso.with(context).load(w.images.firstOrNull()).into(vh.picture)
+        Picasso.with(context).load(w.images.firstOrNull()).placeholder(R.drawable.generic_wall).fit().centerCrop().into(vh.picture)
 
         return cv
     }

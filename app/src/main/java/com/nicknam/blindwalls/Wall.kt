@@ -30,7 +30,7 @@ data class Wall(val id: Int,
                 val description: Map<String, String>,
                 val material: Map<String, String>,
                 val category: Map<String, String>,
-                val images: List<String>
+                val images: List<String?>
 ) : Serializable {
     companion object {
         fun extractFromJSONArray(jsonArray: JSONArray): MutableList<Wall> {
@@ -53,7 +53,9 @@ data class Wall(val id: Int,
                 val category: MutableMap<String, String> = HashMap(2)
                 category.put("en", o.getJSONObject("category")["en"] as String)
                 category.put("nl", o.getJSONObject("category")["nl"] as String)
-                val images: MutableList<String> = ArrayList((o.getJSONArray("images")).length())
+                val images: MutableList<String?> = ArrayList((o.getJSONArray("images")).length())
+                val imagesArray = o["images"] as JSONArray
+                (0 until imagesArray.length()).mapTo(images) { imagesArray.getJSONObject(it)["url"] as? String }
 
                 val rating = if (o["rating"] is Double) (o["rating"] as Double).toFloat() else (o["rating"] as? Int)?.toFloat()
                 walls.add(Wall(

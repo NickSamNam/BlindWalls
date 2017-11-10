@@ -14,7 +14,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val lvWalls = findViewById<ListView>(R.id.activity_main_lv_walls)
-        val wallAdapter = WallAdapter(this, layoutInflater, Wall.extractFromJSONArray(DataLoader.retrieveWalls(this)))
+        val walls = Wall.extractFromJSONArray(DataLoader.retrieveWalls(this))
+        walls.sortBy { it -> it.nrOnMap }
+        val wallAdapter = WallAdapter(this, layoutInflater, walls)
         lvWalls.adapter = wallAdapter
         lvWalls.setOnItemClickListener { _: AdapterView<*>, _: View, position: Int, _: Long ->
             val intent = Intent(applicationContext, DetailsActivity::class.java)

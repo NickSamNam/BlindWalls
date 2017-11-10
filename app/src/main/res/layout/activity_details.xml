@@ -16,27 +16,29 @@
 
 
         <ImageView
+            android:id="@+id/activity_details_iv_wall_blurred"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="@+id/activity_details_iv_wall"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/activity_details_iv_wall"
+            tools:alpha=".7"
+            tools:srcCompat="@color/colorAccent" />
+
+        <ImageView
             android:id="@+id/activity_details_iv_wall"
             android:layout_width="0dp"
             android:layout_height="200dp"
             android:contentDescription="@string/item_wall_image_description"
+            android:scaleType="fitXY"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintDimensionRatio="w,4:3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
-            tools:srcCompat="@color/colorAccent" />
-
-        <ImageView
-            android:id="@+id/activity_details_iv_wall_blurred"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="@+id/activity_details_iv_wall"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/activity_details_iv_wall"
-            tools:alpha=".7"
             tools:srcCompat="@color/colorAccent" />
 
         <TextView
