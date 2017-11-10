@@ -9,18 +9,17 @@ import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
 import com.squareup.picasso.Picasso
-import java.util.*
 
 /**
  * Created by snick on 9-11-2017.
  */
-class WallAdapter(private val context: Context, private val layoutInflator: LayoutInflater, private val walls: MutableList<Wall>) : BaseAdapter() {
+class WallAdapter(private val context: Context, private val layoutInflater: LayoutInflater, private val walls: MutableList<Wall>) : BaseAdapter() {
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         val vh: ViewHolder
         val cv: View
 
         if (convertView == null) {
-            cv = layoutInflator.inflate(R.layout.item_wall, parent, false)
+            cv = layoutInflater.inflate(R.layout.item_wall, parent, false)
             vh = ViewHolder()
             vh.title = cv.findViewById(R.id.item_wall_tv_title)
             vh.address = cv.findViewById(R.id.item_wall_tv_address)
@@ -31,7 +30,6 @@ class WallAdapter(private val context: Context, private val layoutInflator: Layo
             cv = convertView
             vh = convertView.tag as ViewHolder
         }
-
         val w = walls[position]
         vh.title.text = w.title.getOrElse(context.resources.configuration.locale.language) { w.title["en"] }?.trim()
         vh.address.text = w.address
