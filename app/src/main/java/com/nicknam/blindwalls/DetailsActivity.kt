@@ -12,7 +12,6 @@ class DetailsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_details)
         val wall = intent.getSerializableExtra("wall") as Wall
-        val l = if (resources.configuration.locale.language == Locale("nl").language) "nl" else "en"
 
         activity_details_tv_nr.text = wall.nrOnMap.toString()
         activity_details_tv_year.text = wall.year.toString()
