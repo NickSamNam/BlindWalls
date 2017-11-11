@@ -13,7 +13,7 @@ import com.squareup.picasso.Picasso
 /**
  * Created by snick on 9-11-2017.
  */
-class WallAdapter(private val context: Context, private val layoutInflater: LayoutInflater, private val walls: MutableList<Wall>) : BaseAdapter() {
+class WallAdapter(private val context: Context, private val layoutInflater: LayoutInflater, val walls: List<Wall>) : BaseAdapter() {
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         val vh: ViewHolder
         val cv: View

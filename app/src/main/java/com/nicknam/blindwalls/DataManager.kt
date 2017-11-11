@@ -21,7 +21,7 @@ class DataManager {
 
         fun retrieveWallsInternal(context: Context): JSONArray = JSONArray(InputStreamReader(context.resources.openRawResource(R.raw.walls)).buffered().use { it.readText() })
 
-        fun retreiveWallsFromAPI (context: Context, responseListener: Response.Listener<JSONArray>, errorListener: Response.ErrorListener) {
+        fun retrieveWallsFromAPI(context: Context, responseListener: Response.Listener<JSONArray>, errorListener: Response.ErrorListener) {
             val request = JsonArrayRequest(Request.Method.GET, BASE_API_URL + MURALS_API_SUFFIX, null, responseListener, errorListener)
             getRequestQueue(context).add(request)
         }

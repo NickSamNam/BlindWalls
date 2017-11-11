@@ -3,4 +3,5 @@
     <string name="item_wall_image_description">Picture of the wall: %1$s.</string>
     <string name="Material">Material: %1$s</string>
     <string name="Category">Category: %1$s</string>
+    <string name="api_error">Could not refresh content, showing old results.</string>
 </resources>
