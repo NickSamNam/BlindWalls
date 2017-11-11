@@ -31,11 +31,15 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
+            android:shadowColor="@android:color/black"
+            android:shadowDx="3"
+            android:shadowDy="3"
+            android:shadowRadius="10"
             android:textColor="@android:color/white"
+            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/activity_details_vp_images"
-            tools:text="46"
-            android:layout_marginLeft="8dp" />
+            tools:text="46" />
 
         <TextView
             android:id="@+id/activity_details_tv_year"
@@ -43,11 +47,15 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginTop="8dp"
+            android:shadowColor="@android:color/black"
+            android:shadowDx="3"
+            android:shadowDy="3"
+            android:shadowRadius="10"
             android:textColor="@android:color/white"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/activity_details_vp_images"
-            tools:text="2016"
-            android:layout_marginRight="8dp" />
+            tools:text="2016" />
 
         <TextView
             android:id="@+id/activity_details_tv_title"
@@ -55,12 +63,15 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:layout_marginStart="8dp"
+            android:shadowColor="@android:color/black"
+            android:shadowDx="3"
+            android:shadowDy="3"
+            android:shadowRadius="10"
             android:textAppearance="@style/TextAppearance.AppCompat.Headline"
             android:textColor="@android:color/white"
             app:layout_constraintBottom_toBottomOf="@+id/activity_details_vp_images"
             app:layout_constraintStart_toStartOf="parent"
-            tools:text="Laura Lehtinen"
-            android:layout_marginLeft="8dp" />
+            tools:text="Laura Lehtinen" />
 
         <TextView
             android:id="@+id/activity_details_tv_address"
