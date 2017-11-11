@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Blind Walls</string>
+    <string name="item_wall_image_description">Foto van de muur.</string>
+    <string name="Material">Materiaal: %1$s</string>
+    <string name="Category">Categorie: %1$s</string>
+    <string name="api_error">Verversen mislukt.</string>
+</resources>
