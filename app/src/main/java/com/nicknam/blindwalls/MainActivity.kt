@@ -9,6 +9,7 @@ import android.widget.ListView
 import android.widget.Toast
 import com.android.volley.Response
 import com.android.volley.VolleyError
+import kotlinx.android.synthetic.main.activity_main.*
 import org.json.JSONArray
 
 class MainActivity : AppCompatActivity(), Response.Listener<JSONArray>, Response.ErrorListener {
@@ -20,7 +21,11 @@ class MainActivity : AppCompatActivity(), Response.Listener<JSONArray>, Response
         wallAdapter = WallAdapter(this, layoutInflater, emptyList())
 
         val walls = savedInstanceState?.getParcelableArrayList<Wall>("walls")
-        if (walls != null) refreshWallAdapter(walls) else DataManager.retrieveWallsFromAPI(this, this, this)
+        if (walls != null) refreshWallAdapter(walls) else {
+            activity_main_swipeContainer.isRefreshing = true
+            DataManager.retrieveWallsFromAPI(this, this, this)}
+
+        activity_main_swipeContainer.setOnRefreshListener( {DataManager.retrieveWallsFromAPI(this, this, this)} )
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -41,10 +46,12 @@ class MainActivity : AppCompatActivity(), Response.Listener<JSONArray>, Response
 
     override fun onResponse(response: JSONArray) {
         refreshWallAdapter(Wall.extractFromJSONArray(response).sortedBy { it -> it.nrOnMap })
+        activity_main_swipeContainer.isRefreshing = false
     }
 
     override fun onErrorResponse(error: VolleyError) {
         refreshWallAdapter(Wall.extractFromJSONArray(DataManager.retrieveWallsInternal(this)).sortedBy { it -> it.nrOnMap })
+        activity_main_swipeContainer.isRefreshing = false
         Toast.makeText(this, R.string.api_error, Toast.LENGTH_LONG).show()
     }
 }
