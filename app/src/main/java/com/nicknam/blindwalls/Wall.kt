@@ -122,7 +122,7 @@ data class Wall(val id: Int,
                     val v = jCategory[k] as? String
                     v?.let { category.put(k, v) }
                 }
-                if (jImages != null) (0 until jImages.length()).mapNotNullTo(images) { jImages.getJSONObject(it)["url"] as? String }
+                if (jImages != null) (0 until jImages.length()).mapNotNullTo(images) { if (jImages.getJSONObject(it)["url"] as? String != null) DataLoader.BASE_IMAGE_URL + (jImages.getJSONObject(it)["url"] as String).toLowerCase() else null }
 
                 walls.add(Wall(
                         id = jO["id"] as? Int ?: -1,
