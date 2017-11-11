@@ -2,8 +2,6 @@ package com.nicknam.blindwalls
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import com.squareup.picasso.Picasso
-import jp.wasabeef.picasso.transformations.BlurTransformation
 import kotlinx.android.synthetic.main.activity_details.*
 
 class DetailsActivity : AppCompatActivity() {
@@ -20,7 +18,6 @@ class DetailsActivity : AppCompatActivity() {
         activity_details_tv_material.text = getString(R.string.Material, wall.material.getOrElse(resources.configuration.locale.language) { wall.material["en"] }?.trim())
         activity_details_tv_categorie.text = getString(R.string.Category, wall.category.getOrElse(resources.configuration.locale.language) { wall.category["en"] }?.trim())
         activity_details_tv_description.text = wall.description.getOrElse(resources.configuration.locale.language) { wall.description["en"] }?.trim()
-        Picasso.with(this).load(wall.images.firstOrNull()).placeholder(R.drawable.generic_wall).fit().centerCrop().into(activity_details_iv_wall)
-        Picasso.with(this).load(wall.images.firstOrNull()).placeholder(R.drawable.generic_wall).fit().transform(BlurTransformation(this)).into(activity_details_iv_wall_blurred)
+        activity_details_vp_images.adapter = ImageSwipeAdapter(this, layoutInflater, wall.images)
     }
 }
