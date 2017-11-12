@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.nicknam.blindwalls.DetailsActivity">
+
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/activity_details_vp_images"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/colorAccent"
+            android:contentDescription="@string/item_wall_image_description"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/activity_details_tv_nr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:shadowColor="@android:color/black"
+            android:shadowDx="3"
+            android:shadowDy="3"
+            android:shadowRadius="10"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/activity_details_vp_images"
+            tools:text="46"
+            android:layout_marginLeft="8dp" />
+
+        <TextView
+            android:id="@+id/activity_details_tv_year"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
+            android:shadowColor="@android:color/black"
+            android:shadowDx="3"
+            android:shadowDy="3"
+            android:shadowRadius="10"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/activity_details_vp_images"
+            tools:text="2016"
+            android:layout_marginRight="8dp" />
+
+        <TextView
+            android:id="@+id/activity_details_tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="8dp"
+            android:shadowColor="@android:color/black"
+            android:shadowDx="3"
+            android:shadowDy="3"
+            android:shadowRadius="10"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+            android:textColor="@android:color/white"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/activity_details_vp_images"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="Laura Lehtinen"
+            android:layout_marginLeft="8dp" />
+
+        <TextView
+            android:id="@+id/activity_details_tv_address"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textSize="18sp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toStartOf="@+id/activity_details_rb_rating"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/activity_details_vp_images"
+            tools:text="Stallingstraat" />
+
+        <RatingBar
+            android:id="@+id/activity_details_rb_rating"
+            style="@style/Widget.AppCompat.RatingBar.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
+            android:isIndicator="true"
+            android:numStars="@integer/item_wall_rb_numStars"
+            android:stepSize=".1"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/activity_details_vp_images"
+            tools:rating="3.5"
+            android:layout_marginRight="8dp" />
+
+        <TextView
+            android:id="@+id/activity_details_tv_material"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/activity_details_tv_address"
+            tools:text="Material: Latex on plaster"
+            android:layout_marginLeft="8dp" />
+
+        <TextView
+            android:id="@+id/activity_details_tv_categorie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/activity_details_tv_material"
+            tools:text="Categorie: Blind Wall"
+            android:layout_marginLeft="8dp" />
+
+        <TextView
+            android:id="@+id/activity_details_tv_description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/activity_details_tv_categorie"
+            app:layout_constraintVertical_bias="0.0"
+            tools:text="The mural represents the short cycle of life, from blossom to death. Inspired by the nearby parking lot history; from vegetable garden to graveyard and the former stables at the end of the street.\n \nIllustrator Laura Lehtinen (FI) studied illustration in Barcelona, where she first got into painting walls. Nowadays she works on magazine and commercial illustration and designs installations in urban spaces. Her work is inspired by nature, traveling, hip hop and skateboarding culture, Tove Jansson (Finnish novelist, painter and illustrator), gastronomy, fashion and love." />
+
+    </android.support.constraint.ConstraintLayout>
+

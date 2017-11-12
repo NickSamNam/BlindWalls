@@ -1,13 +1,22 @@
 package com.nicknam.blindwalls
 
+import android.content.res.Configuration
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.view.WindowManager
 import kotlinx.android.synthetic.main.activity_details.*
 
 class DetailsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_details)
+        if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
+            supportActionBar?.hide()
+        }
+        else {
+            window.clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
+        }
         val wall = intent.getParcelableExtra<Wall>("wall")
 
         activity_details_tv_nr.text = wall.nrOnMap.toString()
